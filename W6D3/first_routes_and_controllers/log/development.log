@@ -146,3 +146,387 @@ Migrating to ChangeUsername (20220824201204)
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2711202859307440470)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-08-24 16:16:23 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/penghuidong/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/penghuidong/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.7ms | Allocations: 549)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 2821)
+
+
+Started GET "/users" for ::1 at 2022-08-24 16:17:48 -0400
+
+AbstractController::ActionNotFound - The action 'index' could not be found for UsersController:
+
+Started GET "/users" for ::1 at 2022-08-24 16:18:48 -0400
+Processing by UsersController#index as */*
+No template found for UsersController#index, rendering head :no_content
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 229)
+
+
+Started GET "/users" for ::1 at 2022-08-24 16:19:34 -0400
+Processing by UsersController#index as */*
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 9)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 588)
+
+
+Started GET "/users?fav_food=pizza" for ::1 at 2022-08-24 16:21:59 -0400
+Processing by UsersController#index as */*
+  Parameters: {"fav_food"=>"pizza"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 179)
+
+
+Started POST "/users?fav_food=pizza" for ::1 at 2022-08-24 16:22:18 -0400
+
+AbstractController::ActionNotFound - The action 'create' could not be found for UsersController:
+
+Started GET "/users?fav_food=pizza" for ::1 at 2022-08-24 16:23:00 -0400
+Processing by UsersController#index as */*
+  Parameters: {"fav_food"=>"pizza"}
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 462)
+
+
+Started POST "/users?fav_food=pizza" for ::1 at 2022-08-24 16:23:16 -0400
+Processing by UsersController#create as */*
+  Parameters: {"fav_food"=>"pizza"}
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 195)
+
+
+Started POST "/users?fav_food=pizza" for ::1 at 2022-08-24 16:31:55 -0400
+Processing by UsersController#create as */*
+  Parameters: {"fav_food"=>"pizza"}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 107)
+
+
+Started POST "/users/2" for ::1 at 2022-08-24 16:32:37 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/2"):
+  
+Started POST "/users/2" for ::1 at 2022-08-24 16:32:42 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/2"):
+  
+Started GET "/users/:id" for ::1 at 2022-08-24 16:33:08 -0400
+
+AbstractController::ActionNotFound - The action 'show' could not be found for UsersController:
+
+Started GET "/users/2" for ::1 at 2022-08-24 16:39:00 -0400
+
+AbstractController::ActionNotFound - The action 'show' could not be found for UsersController:
+
+Started GET "/users/:id" for ::1 at 2022-08-24 16:40:10 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>":id"}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 204)
+
+
+Started POST "/users/:id" for ::1 at 2022-08-24 16:41:03 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/:id"):
+  
+Started POST "/users?some_category[a_key]=[FILTERED]&some_category[a_second_key]=[FILTERED]&some_category[inner_inner_hash][key]=value&something_else=aaahhhhh" for ::1 at 2022-08-24 16:42:07 -0400
+Processing by UsersController#create as */*
+  Parameters: {"some_category"=>{"a_key"=>"[FILTERED]", "a_second_key"=>"[FILTERED]", "inner_inner_hash"=>{"key"=>"value"}}, "something_else"=>"aaahhhhh"}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 150)
+
+
+Started POST "/users/:username=payton" for ::1 at 2022-08-24 16:47:14 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/:username=payton"):
+  
+Started POST "/users/username=payton" for ::1 at 2022-08-24 16:47:32 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/username=payton"):
+  
+Started POST "/users/payton" for ::1 at 2022-08-24 16:48:34 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/payton"):
+  
+Started POST "/users" for ::1 at 2022-08-24 16:48:56 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 5ms (Allocations: 2492)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:8:in `create'
+
+Started POST "/users?username=payton" for ::1 at 2022-08-24 16:49:41 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"payton"}
+Completed 400 Bad Request in 1ms (Allocations: 605)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:8:in `create'
+
+Started POST "/users?user=payton" for ::1 at 2022-08-24 16:49:58 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>"payton"}
+Completed 500 Internal Server Error in 7ms (Allocations: 1942)
+
+
+
+NoMethodError - undefined method `permit' for "payton":String
+        user = User.new(params.require(:user).permit(:username))
+                                             ^^^^^^^:
+  app/controllers/users_controller.rb:8:in `create'
+
+Started POST "/users?user=payton" for ::1 at 2022-08-24 16:52:10 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>"payton"}
+Completed 500 Internal Server Error in 3ms (Allocations: 1877)
+
+
+
+NoMethodError - undefined method `permit' for "payton":String
+        user = User.new(params.require(:user).permit(:username))
+                                             ^^^^^^^:
+  app/controllers/users_controller.rb:8:in `create'
+
+Started POST "/users" for ::1 at 2022-08-24 16:52:22 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 2ms (Allocations: 570)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:8:in `create'
+
+Started POST "/users" for ::1 at 2022-08-24 16:52:34 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (Allocations: 570)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:8:in `create'
+
+Started POST "/users?user[username]=payton" for ::1 at 2022-08-24 16:56:09 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"payton"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "payton"], ["created_at", "2022-08-24 20:56:09.972404"], ["updated_at", "2022-08-24 20:56:09.972404"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 68ms (Views: 0.2ms | ActiveRecord: 36.3ms | Allocations: 9619)
+
+
+Started POST "/users?user[username]=clide" for ::1 at 2022-08-24 16:56:28 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"clide"}}
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "clide"], ["created_at", "2022-08-24 20:56:28.567626"], ["updated_at", "2022-08-24 20:56:28.567626"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 4.4ms | Allocations: 1979)
+
+
+Started POST "/users/" for ::1 at 2022-08-24 17:04:47 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 2ms (Allocations: 1609)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/users/" for ::1 at 2022-08-24 17:04:56 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (Allocations: 1601)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:9:in `create'
+
+Started GET "/users/" for ::1 at 2022-08-24 17:05:03 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 29ms (Views: 24.3ms | ActiveRecord: 14.4ms | Allocations: 5226)
+
+
+Started GET "/users/1" for ::1 at 2022-08-24 17:05:49 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 4167)
+
+
+
+NameError - undefined local variable or method `param' for #<UsersController:0x0000000000b608>
+        user = User.find(param[:id])
+                         ^^^^^
+Did you mean?  params
+               params=:
+  app/controllers/users_controller.rb:19:in `show'
+
+Started GET "/users/1" for ::1 at 2022-08-24 17:05:57 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 7.8ms | Allocations: 6051)
+
+
+Started GET "/users/2" for ::1 at 2022-08-24 17:06:02 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 652)
+
+
+Started POST "/users/2/user[username]=clide2" for ::1 at 2022-08-24 17:11:16 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/2/user[username]=clide2"):
+  
+Started POST "/users/2/user[username]=%22clide2%22" for ::1 at 2022-08-24 17:11:35 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/2/user[username]=%22clide2%22"):
+  
+Started POST "/users/2/" for ::1 at 2022-08-24 17:11:48 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/users/2"):
+  
+Started PATCH "/users/2/?username=clide2" for ::1 at 2022-08-24 17:12:53 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 1672)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:37:in `user_param'
+  app/controllers/users_controller.rb:24:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-24 17:13:01 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms | Allocations: 607)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:37:in `user_param'
+  app/controllers/users_controller.rb:24:in `update'
+
+Started PATCH "/users/2?user[username]=clide2" for ::1 at 2022-08-24 17:14:00 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"username"=>"clide2"}, "id"=>"2"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 1658)
+
+
+
+NoMethodError - undefined method `id' for #<ActionController::Parameters {"username"=>"clide2"} permitted: true>
+        user = User.find(user_param.id)
+                                   ^^^:
+  app/controllers/users_controller.rb:24:in `update'
+
+Started PATCH "/users/" for ::1 at 2022-08-24 17:15:08 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/users"):
+  
+Started GET "/users" for ::1 at 2022-08-24 17:15:23 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 8ms (Views: 2.6ms | ActiveRecord: 3.6ms | Allocations: 3570)
+
+
+Started PATCH "/users/2?user[username]=clide2" for ::1 at 2022-08-24 17:15:37 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"username"=>"clide2"}, "id"=>"2"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1687)
+
+
+
+NoMethodError - undefined method `id' for #<ActionController::Parameters {"username"=>"clide2"} permitted: true>
+        user = User.find(user_param.id)
+                                   ^^^:
+  app/controllers/users_controller.rb:23:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-24 17:16:42 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 610)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:36:in `user_param'
+  app/controllers/users_controller.rb:23:in `update'
+
+Started PATCH "/users/2?user[username]=clide2" for ::1 at 2022-08-24 17:17:44 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"username"=>"clide2"}, "id"=>"2"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1632)
+
+
+
+NoMethodError - undefined method `id' for #<ActionController::Parameters {"username"=>"clide2"} permitted: true>
+        user = User.find(user_param.id)
+                                   ^^^:
+  app/controllers/users_controller.rb:23:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-24 17:17:54 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 606)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:36:in `user_param'
+  app/controllers/users_controller.rb:23:in `update'
+
+Started GET "/users" for ::1 at 2022-08-24 17:18:07 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 863)
+
+
+Started PATCH "/users/2?username=clidee" for ::1 at 2022-08-24 17:18:21 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clidee", "id"=>"2"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms | Allocations: 606)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:36:in `user_param'
+  app/controllers/users_controller.rb:23:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-24 17:20:57 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 1650)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:32:in `user_param'
+  app/controllers/users_controller.rb:23:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-24 17:22:14 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 1650)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:32:in `user_param'
+  app/controllers/users_controller.rb:23:in `update'
+
