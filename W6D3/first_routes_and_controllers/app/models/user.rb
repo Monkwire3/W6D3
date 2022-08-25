@@ -31,6 +31,10 @@ class User < ApplicationRecord
         through: :pieces_viewed,
         source: :artwork
 
+    has_many :likes,
+        foreign_key: :liker_id,
+        class_name: :Like
+
 
     
 

@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+# User.destroy_all
+# Like.destroy_all
+# Comment.destroy_all
+# ArtworkShare.destroy_all
+# Artwork.destroy_all
+
 User.create(username: 'Payton')
 User.create(username: 'Clide')
 User.create(username: 'John')
@@ -28,6 +34,10 @@ Comment.create(body: 'nice drawing',author_id: 1, artwork_id: 1)
 Comment.create(body: 'perfect drawing',author_id: 2, artwork_id: 2)
 Comment.create(body: 'great drawing',author_id: 1, artwork_id: 1)
 Comment.create(body: 'stupid drawing',author_id: 4, artwork_id: 3)
+
+Like.create(liker_id: 1,likeable_type: :Comment, likeable_id: 1)
+Like.create(liker_id: 2,likeable_type: :Artwork, likeable_id: 3)
+
 
 # INSERT INTO users
 

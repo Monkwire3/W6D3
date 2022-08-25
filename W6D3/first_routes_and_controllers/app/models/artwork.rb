@@ -34,6 +34,13 @@ class Artwork < ApplicationRecord
         through: :viewers,
         source: :viewer
 
+    has_many :likes,
+        as: :likeable
+
+
+
+
+
     # has_many :artworks_for_user_id
     #     through: :shared_viewers,
     #     source: :shared_artworks
