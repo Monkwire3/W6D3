@@ -13,15 +13,25 @@ class User < ApplicationRecord
 
     has_many :artworks,
         foreign_key: :artist_id,
-        class_name: :Artwork
+        class_name: :Artwork,
+        inverse_of: :artist
     
     has_many :pieces_viewed,
         foreign_key: :viewer_id,
-        class_name: :ArtworkShare
+        class_name: :ArtworkShare,
+        inverse_of: :viewer
+
+    has_many :comments,
+        foreign_key: :author_id,
+        class_name: :Comment,
+        inverse_of: :commenter,
+        dependent: :destroy
 
     has_many :shared_artworks,
         through: :pieces_viewed,
         source: :artwork
+
+
     
 
 end

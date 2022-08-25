@@ -23,8 +23,7 @@ class UsersController < ApplicationController
 
     def show_user_artworks
         user = User.find(params[:id])
-        render json: user.artworks
-
+        render json: user, include: [:shared_artworks, :artworks]
     end
 
     def update

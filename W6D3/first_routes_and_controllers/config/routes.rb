@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
   get '/users/:id/artworks', to: 'users#show_user_artworks'
 
+  # resources :users do 
+  #   resources :artworks
+  # end
+
   resources :users, only: [:index, :show, :create, :update, :destroy]
   resources :artworks, only: [:index, :show, :create, :update, :destroy]
   resources :artwork_shares, only: [:index, :create, :destroy]
+  resources :comments, only: [:index, :create, :destroy]
 end
