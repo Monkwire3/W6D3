@@ -530,3 +530,328 @@ ActionController::ParameterMissing - param is missing or the value is empty: use
   app/controllers/users_controller.rb:32:in `user_param'
   app/controllers/users_controller.rb:23:in `update'
 
+Started GET "/users/2" for ::1 at 2022-08-25 09:05:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `show'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 5.6ms | Allocations: 8804)
+
+
+Started PATCH "/users/2" for ::1 at 2022-08-25 09:06:39 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "id"=>"2"}
+Completed 400 Bad Request in 15ms (ActiveRecord: 0.0ms | Allocations: 689)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user
+Did you mean?  users:
+  app/controllers/users_controller.rb:32:in `user_param'
+  app/controllers/users_controller.rb:23:in `update'
+
+Started GET "/users" for ::1 at 2022-08-25 09:06:46 -0400
+Processing by UsersController#index as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 981)
+
+
+Started PATCH "/users" for ::1 at 2022-08-25 09:07:27 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/users"):
+  
+Started PATCH "/users" for ::1 at 2022-08-25 09:08:11 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/users"):
+  
+Started GET "/users" for ::1 at 2022-08-25 09:08:33 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 2.7ms | ActiveRecord: 3.2ms | Allocations: 3594)
+
+
+Started PATCH "/users?users[clide]=clide2" for ::1 at 2022-08-25 09:09:17 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/users"):
+  
+Started PATCH "/users/2?users[clide]=clide2" for ::1 at 2022-08-25 09:11:57 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "id"=>"2"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 1641)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user
+Did you mean?  users:
+  app/controllers/users_controller.rb:35:in `user_param'
+  app/controllers/users_controller.rb:25:in `update'
+
+Started PATCH "/users/2?users[username]=clide2" for ::1 at 2022-08-25 09:12:19 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"username"=>"clide2"}, "id"=>"2"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 599)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user
+Did you mean?  users:
+  app/controllers/users_controller.rb:35:in `user_param'
+  app/controllers/users_controller.rb:25:in `update'
+
+Started PATCH "/users/2?users[username]=clide2" for ::1 at 2022-08-25 09:12:59 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"username"=>"clide2"}, "id"=>"2"}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 598)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user
+Did you mean?  users:
+  app/controllers/users_controller.rb:35:in `user_param'
+  app/controllers/users_controller.rb:25:in `update'
+
+Started PATCH "/users/2?user[username]=clide2" for ::1 at 2022-08-25 09:13:05 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "user"=>{"username"=>"clide2"}, "id"=>"2"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1737)
+
+
+
+NoMethodError - undefined method `id' for #<ActionController::Parameters {"username"=>"clide2"} permitted: true>
+        user = User.find(user_param.id)
+                                   ^^^:
+  app/controllers/users_controller.rb:25:in `update'
+
+Started GET "/users/2" for ::1 at 2022-08-25 09:13:58 -0400
+Processing by UsersController#show as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 4.6ms | Allocations: 3088)
+
+
+Started GET "/users/2?username=clide2" for ::1 at 2022-08-25 09:14:12 -0400
+Processing by UsersController#show as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 656)
+
+
+Started PUT "/users/2?username=clide2" for ::1 at 2022-08-25 09:14:17 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 615)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user
+Did you mean?  users:
+  app/controllers/users_controller.rb:35:in `user_param'
+  app/controllers/users_controller.rb:25:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:14:21 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 615)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user
+Did you mean?  users:
+  app/controllers/users_controller.rb:35:in `user_param'
+  app/controllers/users_controller.rb:25:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:14:40 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:18:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:18:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010b75bb90>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3831)
+
+
+
+NoMethodError - undefined method `id' for #<ActionController::Parameters {} permitted: true>
+        user = User.find(user_param.id)
+                                   ^^^:
+  app/controllers/users_controller.rb:25:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:18:42 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010b783c30>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010b783c30>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010b783c30>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010b783c30>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010b783c30>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:22:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+Completed 400 Bad Request in 89204ms (ActiveRecord: 0.0ms | Allocations: 88872)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user
+Did you mean?  users:
+  app/controllers/users_controller.rb:35:in `user_param'
+  app/controllers/users_controller.rb:26:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:27:53 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010efd7de8>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 4953)
+
+
+
+NoMethodError - undefined method `id' for #<ActionController::Parameters {} permitted: true>
+        user = User.find(user_param.id)
+                                   ^^^:
+  app/controllers/users_controller.rb:26:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:28:12 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010f157a10>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010f157a10>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+Completed 500 Internal Server Error in 55492ms (ActiveRecord: 0.0ms | Allocations: 7935)
+
+
+
+NoMethodError - undefined method `id' for #<ActionController::Parameters {} permitted: true>
+        user = User.find(user_param.id)
+                                   ^^^:
+  app/controllers/users_controller.rb:26:in `update'
+
+Started PATCH "/users/2?username=clide2" for ::1 at 2022-08-25 09:35:21 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `update'
+[31mUnpermitted parameter: :clide. Context: { controller: UsersController, action: update, request: #<ActionDispatch::Request:0x000000010f31c5d0>, params: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "controller"=>"users", "action"=>"update", "id"=>"2"} }[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 16ms (ActiveRecord: 7.1ms | Allocations: 8429)
+
+
+Started GET "/users/2" for ::1 at 2022-08-25 09:35:21 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 960)
+
+
+Started GET "/users/2?username=clide2" for ::1 at 2022-08-25 09:35:39 -0400
+Processing by UsersController#show as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}, "username"=>"clide2", "id"=>"2"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.8ms | Allocations: 656)
+
+
+Started GET "/users" for ::1 at 2022-08-25 09:35:45 -0400
+Processing by UsersController#index as */*
+  Parameters: {"users"=>{"clide"=>"clide2"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 937)
+
+
+Started PATCH "/users" for ::1 at 2022-08-25 09:36:45 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/users"):
+  
+Started PATCH "/users/2" for ::1 at 2022-08-25 09:36:52 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clide2", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `update'
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.4ms | Allocations: 1207)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: users
+Did you mean?  username:
+  app/controllers/users_controller.rb:35:in `user_param'
+  app/controllers/users_controller.rb:27:in `update'
+
+Started PATCH "/users/2" for ::1 at 2022-08-25 09:37:02 -0400
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"clide2", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `update'
+Completed 400 Bad Request in 223416ms (ActiveRecord: 3.2ms | Allocations: 14747)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: users
+Did you mean?  username:
+  app/controllers/users_controller.rb:35:in `user_param'
+  app/controllers/users_controller.rb:27:in `update'
+
+Started PATCH "/users/2" for ::1 at 2022-08-25 09:41:02 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"username"=>"clide2"}, "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["username", "clide2"], ["updated_at", "2022-08-25 13:41:02.358516"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 23ms (ActiveRecord: 4.7ms | Allocations: 6252)
+
+
+Started GET "/users/2" for ::1 at 2022-08-25 09:41:02 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 735)
+
+
+Started GET "/users" for ::1 at 2022-08-25 09:41:28 -0400
+Processing by UsersController#index as */*
+  Parameters: {"users"=>{"username"=>"clide2"}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 2.3ms | Allocations: 893)
+
+
+Started PATCH "/users/2" for ::1 at 2022-08-25 09:41:41 -0400
+Processing by UsersController#update as */*
+  Parameters: {"users"=>{"username"=>"clide3"}, "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["username", "clide3"], ["updated_at", "2022-08-25 13:43:40.511831"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:27:in `update'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 119090ms (ActiveRecord: 1.8ms | Allocations: 6021)
+
+
+Started GET "/users/2" for ::1 at 2022-08-25 09:43:40 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 639)
+
+

@@ -1,3 +1,5 @@
+require 'byebug'
+
 class UsersController < ApplicationController
     def index
         users = User.all
@@ -20,7 +22,8 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find(user_param.id)
+        # debugger
+        user = User.find(params[:id])
         if user.update(user_param)
             redirect_to user_url(user.id)
         else
@@ -29,7 +32,7 @@ class UsersController < ApplicationController
     end
 
     def user_param
-        params.require(:user).permit(:username)
+        params.require(:users).permit(:username)
     end
 
 end
