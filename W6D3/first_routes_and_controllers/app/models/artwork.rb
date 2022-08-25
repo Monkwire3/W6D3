@@ -2,12 +2,13 @@
 #
 # Table name: artworks
 #
-#  id         :bigint           not null, primary key
-#  title      :string           not null
-#  image_url  :text             not null
-#  artist_id  :bigint           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :bigint           not null, primary key
+#  title           :string           not null
+#  image_url       :text             not null
+#  artist_id       :bigint           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  favorited_by_id :bigint
 #
 class Artwork < ApplicationRecord
     validates :artist_id, :image_url, presence: true, uniqueness: {scope: :title}
@@ -36,6 +37,10 @@ class Artwork < ApplicationRecord
 
     has_many :likes,
         as: :likeable
+    
+    belongs_to :favorited_by,
+        foreign_key: :favorited_by_id,
+        class_name: :User
 
 
 

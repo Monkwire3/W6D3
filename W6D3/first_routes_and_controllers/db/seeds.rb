@@ -21,7 +21,7 @@ Artwork.create(title: 'scream', image_url: 'scream.com', artist_id: 1)
 Artwork.create(title: 'mona_lisa', image_url: 'mona_lisa.com', artist_id: 2)
 Artwork.create(title: 'flowers', image_url: 'flowers.com', artist_id: 2)
 Artwork.create(title: 'landscape', image_url: 'landscape.com', artist_id: 3)
-Artwork.create(title: 'skyline', image_url: 'skyline.com', artist_id: 1)
+Artwork.create(title: 'skyline', image_url: 'skyline.com', artist_id: 1, favorited_by_id: 1)
 
 ArtworkShare.create(artwork_id: 1, viewer_id:1)
 ArtworkShare.create(artwork_id: 1, viewer_id:2)
@@ -37,6 +37,8 @@ Comment.create(body: 'stupid drawing',author_id: 4, artwork_id: 3)
 
 Like.create(liker_id: 1,likeable_type: :Comment, likeable_id: 1)
 Like.create(liker_id: 2,likeable_type: :Artwork, likeable_id: 3)
+
+
 
 
 # INSERT INTO users

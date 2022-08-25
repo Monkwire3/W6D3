@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_25_201640) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_203412) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,7 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_201640) do
     t.bigint "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "favorited_by_id"
     t.index ["artist_id"], name: "index_artworks_on_artist_id"
+    t.index ["favorited_by_id"], name: "index_artworks_on_favorited_by_id"
     t.index ["image_url"], name: "index_artworks_on_image_url", unique: true
   end
 
@@ -63,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_201640) do
   add_foreign_key "artwork_shares", "artworks"
   add_foreign_key "artwork_shares", "users", column: "viewer_id"
   add_foreign_key "artworks", "users", column: "artist_id"
+  add_foreign_key "artworks", "users", column: "favorited_by_id"
   add_foreign_key "comments", "artworks"
   add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "likes", "users", column: "liker_id"

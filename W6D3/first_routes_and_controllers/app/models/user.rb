@@ -34,6 +34,10 @@ class User < ApplicationRecord
     has_many :likes,
         foreign_key: :liker_id,
         class_name: :Like
+    
+    has_many :favorites,
+        foreign_key: :favorited_by_id,
+        class_name: :Artwork
 
 
     
