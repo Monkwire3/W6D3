@@ -2,8 +2,13 @@ require 'byebug'
 
 class UsersController < ApplicationController
     def index
-        users = User.all
-        render json: users
+        user = User.find_by(username: request.query_string)
+        if user
+            render json: user
+        else
+            users = User.all
+            render json: users
+        end
     end
 
     def create
@@ -21,10 +26,10 @@ class UsersController < ApplicationController
         render json: user
     end
 
-    def show_user_artworks
-        user = User.find(params[:id])
-        render json: user, include: [:shared_artworks, :artworks]
-    end
+#    def show_user_artworks
+        #user = User.find(params[:id])
+        #render json: user, include: [:shared_artworks, :artworks]
+    #end
 
     def update
         # debugger

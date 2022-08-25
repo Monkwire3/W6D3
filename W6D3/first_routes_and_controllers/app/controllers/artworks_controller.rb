@@ -1,8 +1,8 @@
 class ArtworksController < ApplicationController
 
     def index
-        artworks = Artwork.all
-        render json: artworks
+        user = User.find(params[:user_id])
+        render json: user, include: [:shared_artworks, :artworks] 
     end
 
     def create
@@ -17,12 +17,13 @@ class ArtworksController < ApplicationController
     end
 
     def show
+        debugger
         artwork = Artwork.find(params[:id])
         render json: artwork
     end
 
+
     def update
-        # debugger
         artwork = Artwork.find(params[:id])
         if artwork.update(artwork_param)
             redirect_to artwork_url(artwork.id)
