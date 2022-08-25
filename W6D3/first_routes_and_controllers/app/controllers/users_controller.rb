@@ -21,6 +21,12 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def show_user_artworks
+        user = User.find(params[:id])
+        render json: user.artworks
+
+    end
+
     def update
         # debugger
         user = User.find(params[:id])
