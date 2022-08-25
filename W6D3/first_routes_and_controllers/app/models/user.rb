@@ -8,6 +8,9 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
+    validates :username, presence: true, uniqueness: true
+
+
     has_many :artworks,
         foreign_key: :artist_id,
         class_name: :Artwork
@@ -15,6 +18,10 @@ class User < ApplicationRecord
     has_many :pieces_viewed,
         foreign_key: :viewer_id,
         class_name: :ArtworkShare
+
+    has_many :shared_artworks,
+        through: :pieces_viewed,
+        source: :artwork
     
 
 end
